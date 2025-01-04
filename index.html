@@ -10,106 +10,126 @@
         @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
 
         /* עיצוב כללי */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Heebo', Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f8fa;
             color: #333;
-            text-align: center;
-            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 100vh;
+            overflow-x: hidden; /* ביטול גלילה אופקית */
         }
 
         header {
-            background-color: #007bff;
-            color: white;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            width: 100%;
             padding: 20px 0;
+            text-align: center;
+            color: white;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
             font-weight: bold;
+            margin: 0;
         }
 
         main {
+            width: 100%;
+            max-width: 1200px;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
-            opacity: 0;
-            filter: blur(10px);
-            transform: translateY(-50px); /* מתחיל מלמעלה */
-            transition: opacity 1s ease, filter 1s ease, transform 1s ease; /* אנימציה */
-        }
-
-        main.loaded {
-            opacity: 1;
-            filter: blur(0);
-            transform: translateY(0); /* מגיע למקומו הסופי */
         }
 
         .product-card {
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 20px;
+            width: 100%; /* מותאם למובייל */
             max-width: 400px;
             text-align: center;
-            padding: 20px;
+            position: relative;
+            overflow: hidden;
         }
 
         .product-card img {
             width: 100%;
             max-width: 250px;
+            margin: 20px auto;
+            display: block;
             border-radius: 10px;
-            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .product-price {
+        .price {
             font-size: 1.8em;
             color: #d9534f;
             font-weight: bold;
-            margin: 10px 0;
         }
 
         .delivery-info {
-            font-size: 1em;
-            color: #666;
-            margin: 5px 0 15px;
+            font-size: 1.2em;
+            color: #555;
+            margin: 10px 0;
         }
 
         .features {
-            font-size: 1em;
-            text-align: left;
+            margin: 20px 0;
             list-style: none;
             padding: 0;
-            margin: 10px auto 20px;
-            max-width: 250px;
+            text-align: center;
         }
 
         .features li {
-            margin: 10px 0;
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .features li::before {
             content: "✔";
             color: #28a745;
-            margin-right: 5px;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .cta-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap; /* כפתורים מסתדרים אחד מתחת לשני במובייל */
+            justify-content: center;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #25D366;
-            color: #fff;
             padding: 15px 20px;
-            text-decoration: none;
             font-size: 1.2em;
+            text-decoration: none;
+            color: white;
+            background-color: #25D366;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s;
+            transition: all 0.3s ease;
+            text-align: center;
+            min-width: 140px; /* התאמה לכפתורים קטנים במובייל */
         }
 
         .cta-button:hover {
@@ -117,43 +137,69 @@
             transform: scale(1.05);
         }
 
-        .bit-container {
-            margin-top: 20px;
+        .bit-button {
+            background-color: #007bff;
         }
 
-        .bit-container img {
-            width: 80px;
-            height: auto;
-        }
-
-        .bit-instructions {
-            font-size: 1.1em;
-            color: #333;
-            margin-top: 15px;
+        .bit-button:hover {
+            background-color: #0056b3;
         }
 
         footer {
-            margin-top: 30px;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
             background-color: #f1f1f1;
-            padding: 10px;
             font-size: 0.9em;
             color: #666;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .product-card {
+                padding: 15px;
+            }
+
+            .price {
+                font-size: 1.6em;
+            }
+
+            .delivery-info {
+                font-size: 1em;
+            }
+
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- כותרת הדף -->
+
+    <!-- כותרת -->
     <header>
         <h1>מדבקה לרכב</h1>
     </header>
 
-    <!-- תוכן הדף -->
-    <main id="content">
-        <!-- כרטיס המוצר -->
+    <!-- תוכן -->
+    <main>
         <div class="product-card">
             <h2>ה׳ יתברך תמיד אוהב אותי</h2>
             <img src="https://i.imgur.com/un1AK6l.jpeg" alt="מדבקה">
-            <p class="product-price">50₪</p>
+            <p class="price">50₪</p>
             <p class="delivery-info">משלוח בתוספת 20₪ לתושבי באר שבע בלבד</p>
 
             <ul class="features">
@@ -162,28 +208,21 @@
                 <li>עיצוב שמותאם לכל רכב</li>
             </ul>
 
-            <a href="https://wa.me/972549416265?text=שלום,%20אני%20מעוניין/ת%20לרכוש%20את%20המדבקה." 
-               class="cta-button">שלחו הודעה</a>
-        </div>
-
-        <!-- תשלום ביט -->
-        <div class="bit-container">
-            <img src="https://i.imgur.com/GRK9qtT.jpeg" alt="ביט">
-            <p class="bit-instructions">לשלם 50₪ באפליקציית ביט למספר: <strong>054-941-6265</strong></p>
+            <div class="cta-container">
+                <a href="https://wa.me/972549416265?text=שלום,%20אני%20מעוניין/ת%20לרכוש%20את%20המדבקה." class="cta-button">
+                    שלחו הודעה בוואטסאפ
+                </a>
+                <a href="bit://send?phone=0549416265" class="cta-button bit-button">
+                    שלם עם ביט
+                </a>
+            </div>
         </div>
     </main>
 
     <!-- כותרת תחתונה -->
     <footer>
-        כל הזכויות שמורות © 2025
+        <p>כל הזכויות שמורות © 2025 | <a href="#">צור קשר</a></p>
     </footer>
 
-    <!-- JavaScript -->
-    <script>
-        window.addEventListener('load', () => {
-            const content = document.getElementById('content');
-            content.classList.add('loaded');
-        });
-    </script>
 </body>
 </html>
