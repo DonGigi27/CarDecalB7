@@ -1,228 +1,118 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מדבקה לרכב - ה׳ יתברך תמיד אוהב אותי</title>
-
-    <!-- סגנון CSS -->
+    <meta name="description" content="השדרוג המושלם לרכב שלך - גלה את האביזרים המתקדמים ביותר!">
+    <title>TopCar באר שבע - אביזרי רכב</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap');
-
-        /* עיצוב כללי */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: 'Heebo', Arial, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f8fa;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            min-height: 100vh;
-            overflow-x: hidden; /* ביטול גלילה אופקית */
-        }
-
-        header {
-            background: linear-gradient(135deg, #007bff, #0056b3);
-            width: 100%;
-            padding: 20px 0;
+            direction: rtl;
             text-align: center;
-            color: white;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header h2 {
+            margin: 10px 0;
+            font-size: 1.8em;
+            color: #ff9900;
+        }
+        header p {
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .product {
+            display: inline-block;
+            width: 300px;
+            margin: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        header h1 {
-            font-size: 2.2em;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        main {
+        .product img {
             width: 100%;
-            max-width: 1200px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
         }
-
-        .product-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            padding: 20px;
-            width: 100%; /* מותאם למובייל */
-            max-width: 400px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card img {
-            width: 100%;
-            max-width: 250px;
-            margin: 20px auto;
-            display: block;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .price {
-            font-size: 1.8em;
-            color: #d9534f;
-            font-weight: bold;
-        }
-
-        .delivery-info {
-            font-size: 1.2em;
-            color: #555;
+        .product h3 {
+            font-size: 1.5em;
             margin: 10px 0;
         }
-
-        .features {
-            margin: 20px 0;
-            list-style: none;
-            padding: 0;
-            text-align: center;
+        .product p {
+            padding: 0 10px;
+            font-size: 1em;
+            line-height: 1.5;
         }
-
-        .features li {
-            font-size: 1.1em;
-            color: #333;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .features li::before {
-            content: "✔";
-            color: #28a745;
-            margin-right: 10px;
+        .product .price {
             font-size: 1.2em;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #e68a00;
         }
-
-        .cta-container {
-            margin-top: 20px;
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap; /* כפתורים מסתדרים אחד מתחת לשני במובייל */
-            justify-content: center;
-        }
-
         .cta-button {
             display: inline-block;
-            padding: 15px 20px;
+            padding: 10px 20px;
+            margin: 20px 0;
+            background-color: #25d366;
+            color: #fff;
+            text-decoration: none;
             font-size: 1.2em;
-            text-decoration: none;
-            color: white;
-            background-color: #25D366;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            text-align: center;
-            min-width: 140px; /* התאמה לכפתורים קטנים במובייל */
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
         }
-
         .cta-button:hover {
-            background-color: #1da851;
-            transform: scale(1.05);
+            background-color: #1ebd58;
         }
-
-        .bit-button {
-            background-color: #007bff;
-        }
-
-        .bit-button:hover {
-            background-color: #0056b3;
-        }
-
         footer {
-            width: 100%;
-            text-align: center;
-            padding: 15px;
-            background-color: #f1f1f1;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
             font-size: 0.9em;
-            color: #666;
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            .product-card {
-                padding: 15px;
-            }
-
-            .price {
-                font-size: 1.6em;
-            }
-
-            .delivery-info {
-                font-size: 1em;
-            }
-
-            .cta-button {
-                font-size: 1em;
-                padding: 12px 15px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- כותרת -->
     <header>
-        <h1>מדבקה לרכב</h1>
+        <h1>TopCar באר שבע</h1>
+        <h2>אביזרי רכב</h2>
+        <p>גלה את האביזרים המתקדמים ביותר!</p>
     </header>
 
-    <!-- תוכן -->
-    <main>
-        <div class="product-card">
-            <h2>ה׳ יתברך תמיד אוהב אותי</h2>
-            <img src="https://i.imgur.com/un1AK6l.jpeg" alt="מדבקה">
-            <p class="price">50₪</p>
-            <p class="delivery-info">משלוח בתוספת 20₪ לתושבי באר שבע בלבד</p>
+    <section>
+        <h2>כל האביזרים שרכבך צריך במקום אחד</h2>
+        <p>בטיחות, נוחות וסטייל - האביזרים שיעשו את כל ההבדל.</p>
 
-            <ul class="features">
-                <li>איכות הדפסה גבוהה</li>
-                <li>עמיד למים ולשמש</li>
-                <li>עיצוב שמותאם לכל רכב</li>
-            </ul>
-
-            <div class="cta-container">
-                <a href="https://wa.me/972549416265?text=שלום,%20אני%20מעוניין/ת%20לרכוש%20את%20המדבקה." class="cta-button">
-                    שלחו הודעה בוואטסאפ
-                </a>
-                <a href="bit://send?phone=0549416265" class="cta-button bit-button">
-                    שלם עם ביט
-                </a>
-            </div>
+        <!-- מוצר 1: מדבקה לרכב -->
+        <div class="product">
+            <img src="https://i.imgur.com/un1AK6l.jpeg" alt="מדבקה לרכב">
+            <h3>מדבקה לרכב</h3>
+            <p>מדבקה "ה' יתברך תמיד אוהב אותי" – הוסף השראה וייחודיות לרכב שלך.</p>
+            <p class="price">מחיר: 50₪</p>
+            <a href="https://wa.me/?text=אני%20מעוניין%20במדבקה%20לרכב%20'ה'%20יתברך%20תמיד%20אוהב%20אותי&image=https://i.imgur.com/un1AK6l.jpeg" class="cta-button">שליחת הודעה בוואטסאפ</a>
         </div>
-    </main>
+    </section>
 
-    <!-- כותרת תחתונה -->
     <footer>
-        <p>כל הזכויות שמורות © 2025 | <a href="#">צור קשר</a></p>
+        © 2025 כל הזכויות שמורות לאתר אביזרי רכב - TopCar באר שבע.
     </footer>
-
 </body>
 </html>
